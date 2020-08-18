@@ -1,112 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Hard Rock Solution - Song Lyric App</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    />
-    <!-- Custom css -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
 
-  <body>
-    <div class="container">
-      <nav class="navbar navbar-dark my-3">
-        <a class="navbar-brand" href="#">
-          <img src="images/logo.png" alt="Hard Rock Solution" />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#collapsibleNavId"
-          aria-controls="collapsibleNavId"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <img src="images/toggler-icon.svg" alt="" />
-        </button>
-        <div class="collapse navbar-collapse" id="collapsibleNavId">
-          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-            <li class="nav-item active">
-              <a class="nav-link" href="#"
-                >Home <span class="sr-only">(current)</span></a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="dropdownId"
-                data-toggle="dropdown"
-                aria-haspopup="true"
-                aria-expanded="false"
-                >Dropdown</a
-              >
+<head>
+  <title>Hard Rock Solution - Song Lyric App</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+  <!-- Custom css -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .lyrics {
+      font-size: 20px;
+      font-family: sans-serif;
+      color: white
+    }
+
+    .song_title,
+    .singer {
+      text-align: center;
+      width: 15vw;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <nav class="navbar navbar-dark my-3">
+      <a class="navbar-brand" href="#">
+        <img src="images/logo.png" alt="Hard Rock Solution" />
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+        <img src="images/toggler-icon.svg" alt="" />
+      </button>
+      <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item dropdown">
+            <aown-toggle" href="#" class="nav-link dropd
+                id=" dropdownId" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown
+              </aown-toggle>
               <div class="dropdown-menu" aria-labelledby="dropdownId">
                 <a class="dropdown-item" href="#">Action 1</a>
                 <a class="dropdown-item" href="#">Action 2</a>
               </div>
-            </li>
-          </ul>
-        </div>
-      </nav>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-      <main class="content-area">
-        <div class="search-bar col-md-6 mx-auto">
-          <h1 class="text-center">Lyrics Search</h1>
-          <div class="search-box my-5">
-            <input
-              type="text"
-              class="form-control"
-              placeholder="Enter your artist song name"
-            />
-            <button class="btn btn-success search-btn">Search</button>
-          </div>
+    <main class="content-area">
+      <div class="search-bar col-md-6 mx-auto">
+        <h1 class="text-center">Lyrics Search</h1>
+        <div class="search-box my-5">
+          <input id="search_box" type="text" class="form-control" placeholder="Enter your artist song name" />
+          <button id="search_btn" class="btn btn-success search-btn">Search</button>
         </div>
-        <!-- === Simple results === -->
-        <div class="d-flex justify-content-center">
-          <div class="">
-            <p class="author lead">
-              <strong>Purple Noon</strong> Album by <span>Washed Out</span>
-              <button class="btn btn-success">Get Lyrics</button>
-            </p>
-            <p class="author lead">
-              <strong>Purple Noon</strong> Album by <span>Washed Out</span>
-              <button class="btn btn-success">Get Lyrics</button>
-            </p>
-            <p class="author lead">
-              <strong>Purple Noon</strong> Album by <span>Washed Out</span>
-              <button class="btn btn-success">Get Lyrics</button>
-            </p>
-            <p class="author lead">
-              <strong>Purple Noon</strong> Album by <span>Washed Out</span>
-              <button class="btn btn-success">Get Lyrics</button>
-            </p>
-            <p class="author lead">
-              <strong>Purple Noon</strong> Album by <span>Washed Out</span>
-              <button class="btn btn-success">Get Lyrics</button>
-            </p>
-          </div>
+      </div>
+      <!-- === Simple results === -->
+      <div class="d-flex justify-content-center">
+        <div class="simple_btn">
+          <p class="author lead">
+            <strong class="song_title">Purple Noon 1</strong> Album by <span class="singer">Washed Out</span>
+            <button class="btn btn-success getting_lyrics_btn">Get Lyrics</button>
+          </p>
+          <p class="author lead">
+            <strong class="song_title">Purple Noon 2</strong> Album by <span class="singer">Washed Out</span>
+            <button class="btn btn-success getting_lyrics_btn">Get Lyrics</button>
+          </p>
+          <p class="author lead">
+            <strong class="song_title">Purple Noon 3</strong> Album by <span class="singer">Washed Out</span>
+            <button class="btn btn-success getting_lyrics_btn">Get Lyrics</button>
+          </p>
+          <p class="author lead">
+            <strong class="song_title">Purple Noon 4</strong> Album by <span class="singer">Washed Out</span>
+            <button class="btn btn-success getting_lyrics_btn">Get Lyrics</button>
+          </p>
+          <p class="author lead">
+            <strong class="song_title">Purple Noon 5</strong> Album by <span class="singer">Washed Out</span>
+            <button class="btn btn-success getting_lyrics_btn">Get Lyrics</button>
+          </p>
         </div>
-        <!-- Single Lyrics -->
-        <div class="single-lyrics text-center">
-          <button class="btn go-back">&lsaquo;</button>
-          <h2 class="text-success mb-4">Pentatonix - Na Na Na</h2>
-          <pre id="lyrics" class="lyric text-white">
+      </div>
+      <!-- Single Lyrics -->
+      <div class="single-lyrics text-center">
+        <button class="btn go-back">&lsaquo;</button>
+        <h2 class="lyrics_heading" class="text-success mb-4">Pentatonix - Na Na Na</h2>
+        <pre class="lyrics" class="lyric text-white">
     Wont go whistling like the wind blows,
     Looking out my window,
     Just to see the shine
@@ -200,66 +190,85 @@
     Sing it loud like! (Na na na...)
 
     Gonna feel like! (Na na na...)
-                </pre
-          >
+                </pre>
+      </div>
+      <!-- === Fancy results === -->
+      <div class="search-result col-md-8 mx-auto py-4">
+        <!-- single result -->
+        <div class="single-result row align-items-center my-3 p-3">
+          <div class="col-md-9">
+            <h3 class="lyrics-name fancy_lyrics_names">Purple Noon</h3>
+            <p class="author lead">Album by <span class="fancy_singers">Washed Out</span></p>
+          </div>
+          <div class="col-md-3 text-md-right text-center">
+            <button class="btn btn-success fancy_buttons">Get Lyrics</button>
+          </div>
+          <div id="fancy_lyrics_container">
+            <h2 class="fancy_lyrics_heading"></h2>
+            <pre class="fancy_lyrics"></pre>
+          </div>
         </div>
-        <!-- === Fancy results === -->
-        <div class="search-result col-md-8 mx-auto py-4">
-          <!-- single result -->
-          <div class="single-result row align-items-center my-3 p-3">
-            <div class="col-md-9">
-              <h3 class="lyrics-name">Purple Noon</h3>
-              <p class="author lead">Album by <span>Washed Out</span></p>
-            </div>
-            <div class="col-md-3 text-md-right text-center">
-              <button class="btn btn-success">Get Lyrics</button>
-            </div>
-          </div>
-          <!-- ./ single result -->
+        <!-- ./ single result -->
 
-          <!-- single result -->
-          <div class="single-result row align-items-center my-3 p-3">
-            <div class="col-md-9">
-              <h3 class="lyrics-name">Purple Noon</h3>
-              <p class="author lead">Album by <span>Washed Out</span></p>
-            </div>
-            <div class="col-md-3 text-md-right text-center">
-              <button class="btn btn-success">Get Lyrics</button>
-            </div>
+        <!-- single result -->
+        <div class="single-result row align-items-center my-3 p-3">
+          <div class="col-md-9">
+            <h3 class="lyrics-name fancy_lyrics_names">Purple Noon</h3>
+            <p class="author lead">Album by <span class="fancy_singers">Washed Out</span></p>
           </div>
-          <!-- ./ single result -->
-          <!-- single result -->
-          <div class="single-result row align-items-center my-3 p-3">
-            <div class="col-md-9">
-              <h3 class="lyrics-name">Purple Noon</h3>
-              <p class="author lead">Album by <span>Washed Out</span></p>
-            </div>
-            <div class="col-md-3 text-md-right text-center">
-              <button class="btn btn-success">Get Lyrics</button>
-            </div>
+          <div class="col-md-3 text-md-right text-center">
+            <button class="btn btn-success fancy_buttons">Get Lyrics</button>
           </div>
-          <!-- ./ single result -->
-          <!-- single result -->
-          <div class="single-result row align-items-center my-3 p-3">
-            <div class="col-md-9">
-              <h3 class="lyrics-name">Purple Noon</h3>
-              <p class="author lead">Album by <span>Washed Out</span></p>
-            </div>
-            <div class="col-md-3 text-md-right text-center">
-              <button class="btn btn-success">Get Lyrics</button>
-            </div>
+          <div id="fancy_lyrics_container">
+            <h2 class="fancy_lyrics_heading"></h2>
+            <pre class="fancy_lyrics"></pre>
           </div>
-          <!-- ./ single result -->
         </div>
-      </main>
-    </div>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <!-- ./ single result -->
+        <!-- single result -->
+        <div class="single-result row align-items-center my-3 p-3">
+          <div class="col-md-9">
+            <h3 class="lyrics-name fancy_lyrics_names">Purple Noon</h3>
+            <p class="author lead">Album by <span class="fancy_singers">Washed Out</span></p>
+          </div>
+          <div class="col-md-3 text-md-right text-center">
+            <button class="btn btn-success fancy_buttons">Get Lyrics</button>
+          </div>
+          <div id="fancy_lyrics_container">
+            <h2 class="fancy_lyrics_heading"></h2>
+            <pre class="fancy_lyrics"></pre>
+          </div>
+        </div>
+        <!-- ./ single result -->
+        <!-- single result -->
+        <div class="single-result row align-items-center my-3 p-3">
+          <div class="col-md-9">
+            <h3 class="lyrics-name fancy_lyrics_names">Purple Noon</h3>
+            <p class="author lead">Album by <span class="fancy_singers">Washed Out</span></p>
+          </div>
+          <div class="col-md-3 text-md-right text-center">
+            <button class="btn btn-success fancy_buttons">Get Lyrics</button>
+          </div>
+          <div id="fancy_lyrics_container">
+            <h2 class="fancy_lyrics_heading"></h2>
+            <pre class="fancy_lyrics"></pre>
+          </div>
+        </div>
+        <!-- ./ single result -->
+      </div>
+    </main>
+  </div>
 
-    <!-- Custom Script Here -->
-    <script src="app.js"></script>
-  </body>
+  <!-- Optional JavaScript -->
+
+  </script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Custom Script Here -->
+  <script src="app.js"></script>
+</body>
+
 </html>
