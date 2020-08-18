@@ -32,7 +32,8 @@ const showingLyrics = async (singer, title, lyricsContainer, heading) => {
 //* searching result
 const searchResult = (() => {
   searchBtn.addEventListener("click", () => {
-    if (!searchBox.value) return alert("please type any song or singers name");
+    const searchValue = searchBox.value;
+    if (!searchValue) return alert("please type any song or singers name");
     //*simple results declaration
     const songTitles = document.querySelectorAll(".song_title");
     const singers = document.querySelectorAll(".singer");
