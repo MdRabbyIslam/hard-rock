@@ -1,18 +1,13 @@
-const searchBtn_button = document.querySelector("#search_btn");
-const searchBox_input = document.querySelector("#search_box");
-const songTitles_strong = document.querySelectorAll(".song_title");
-const singers_span = document.querySelectorAll(".singer");
-const lyricsButtons_button = document.querySelectorAll(".getting_lyrics_btn");
-const lyrics_pre = document.querySelector(".lyrics");
-const lyricsheading_h2 = document.querySelector(".lyrics_heading");
-const simpleBtn_div = document.querySelector(".simple_btn");
+const searchBtn = document.querySelector("#search_btn");
+const searchBox = document.querySelector("#search_box");
+const simpleBtn = document.querySelector(".simple_btn");
 
 //* showing result
-function showingResult(receivedData) {
-  for (i = 0; i < songTitles_strong.length; i++) {
-    const songTitle = songTitles_strong[i];
-    const singer = singers_span[i];
-    const lyricsButton = lyricsButtons_button[i];
+const showingResults = (receivedData, titles, singers, buttons) => {
+  for (i = 0; i < titles.length; i++) {
+    const songTitle = titles[i];
+    const singer = singers[i];
+    const lyricsButton = buttons[i];
 
     songTitle.innerText = receivedData.data[i].title;
     singer.innerText = receivedData.data[i].artist.name;
@@ -20,31 +15,75 @@ function showingResult(receivedData) {
     lyricsButton.setAttribute("data-title", `${songTitle.innerText}`);
     lyricsButton.setAttribute("data-singer", `${singer.innerText}`);
   }
-}
+};
 
 //* showing lyrics
-function showingLyrics(singer, title) {
+const showingLyrics = (singer, title, lyricsContainer, heading) => {
   fetch(`https://api.lyrics.ovh/v1/${singer}/${title}`)
     .then((response) => response.json())
     .then((data) => {
-      lyrics_pre.innerText = data.lyrics;
-      lyricsheading_h2.innerText = `${title}--${singer}`;
+      lyricsContainer.innerText = data.lyrics;
+      heading.innerText = `${title}--${singer}`;
     });
-}
+};
 
-searchBtn_button.addEventListener("click", () => {
-  const searchValue = searchBox_input.value;
+searchBtn.addEventListener("click", () => {
+  const searchValue = searchBox.value;
+  //*simple results declaration
+  const songTitles = document.querySelectorAll(".song_title");
+  const singers = document.querySelectorAll(".singer");
+  const lyricsButtons = document.querySelectorAll(".getting_lyrics_btn");
+  //* fancy results declaretion
+  const fancyLyricsButtons = document.querySelectorAll(".fancy_lyrics_button");
+  const fancyLyricsNames = document.querySelectorAll(".fancy_lyrics_names");
+  const fancySingers = document.querySelectorAll(".fancy_singers");
+
   fetch(`https://api.lyrics.ovh/suggest/${searchValue}`)
     .then((response) => response.json())
     .then((data) => {
-      showingResult(data);
+      showingResults(data, songTitles, singers, lyricsButtons);
+      showingResults(data, fancyLyricsNames, fancySingers, fancyLyricsButtons);
     });
 });
 
-simpleBtn_div.addEventListener("click", (e) => {
+simpleBtn.addEventListener("click", (e) => {
   const targetBtn = e.target;
+  if (!targetBtn.matches("button")) return;
+  const lyrics = document.querySelector(".lyrics");
+  const lyricsHeading = document.querySelector(".lyrics_heading");
   const dataTitleAttribute = targetBtn.getAttribute("data-title");
   const dataSingerAttribute = targetBtn.getAttribute("data-singer");
-  if (!targetBtn.matches("button")) return;
-  showingLyrics(dataSingerAttribute, dataTitleAttribute);
+  showingLyrics(dataSingerAttribute, dataTitleAttribute, lyrics, lyricsHeading);
 });
+
+//*/ fancy result started
+const fancyButton = document.querySelector("#fancy_button");
+const fancyLyricsButtons = document.querySelectorAll(".fancy_lyrics_button");
+const fancyLyricsNames = document.querySelectorAll(".fancy_lyrics_names");
+const fancySingers = document.querySelectorAll(".fancy_singers");
+const fancyLyricsHeading = document.querySelectorAll(".fancy_lyrics_heading");
+const fancyLyrics = document.querySelectorAll(".fancy_lyrics");
+
+// console.log(fancyButton);
+// console.log(fancyLyricsButtons);
+// console.log(fancyLyricsNames);
+// console.log(fancySingers);
+// console.log(fancyLyricsHeading);
+// console.log(fancyLyrics);
+
+for (let i = 0; i < fancyLyricsButtons.length; i++) {
+  const fancyLyricsButton = fancyLyricsButtons[i];
+  const fancySingleLyrics = fancyLyrics[i];
+  const fancySingleHeading = fancyLyricsHeading[i];
+  fancyLyricsButton.addEventListener("click", (e) => {
+    const targetButton = e.target;
+    const fancyTitle = targetButton.getAttribute("data-title");
+    const fancySinger = targetButton.getAttribute("data-singer");
+    showingLyrics(
+      fancySinger,
+      fancyTitle,
+      fancySingleLyrics,
+      fancySingleHeading
+    );
+  });
+}
