@@ -49,12 +49,7 @@ const searchResult = (() => {
       .then((response) => response.json())
       .then((data) => {
         showingResults(data, songTitles, singers, lyricsButtons);
-        showingResults(
-          data,
-          fancyLyricsNames,
-          fancySingers,
-          fancyLyricsButtons
-        );
+        showingResults(data, fancyLyricsNames, fancySingers, fancyLyricsButtons);
       });
   });
 })();
